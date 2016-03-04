@@ -13,7 +13,7 @@ public class EnvironmentVarTest
     public void testGetCEnvPath() throws Exception
     {
         String expected = "Something";
-        String actual = new EnvironmentVar().getCEnvPath();
+        String actual = new EnvironmentVar().getEnvPath();
 
         assertEquals(expected, actual);
     }
