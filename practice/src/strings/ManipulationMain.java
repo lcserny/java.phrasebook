@@ -15,5 +15,7 @@ public class ManipulationMain
         System.out.println(manipulation.getSearchedString());
 
         manipulation.printReadString();
+        manipulation.printReversedString();
+        manipulation.printReversedWords();
     }
 }

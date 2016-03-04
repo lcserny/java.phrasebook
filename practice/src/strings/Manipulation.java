@@ -1,13 +1,23 @@
 package strings;
 
 import java.io.IOException;
+import java.io.PrintStream;
 import java.io.StringReader;
+import java.util.Stack;
+import java.util.StringTokenizer;
 
 /**
  * Created by user on 04.03.2016.
  */
 public class Manipulation
 {
+    protected PrintStream stream;
+
+    public Manipulation()
+    {
+        stream = System.out;
+    }
+
     public String getCombinedStrings()
     {
         String first = "first";
@@ -51,8 +61,34 @@ public class Manipulation
             try {
                 current = reader.read();
                 currentChar = Character.toChars(current);
-                System.out.println(currentChar);
+                stream.println(currentChar);
             } catch (IOException e) { e.printStackTrace(); }
         }
+    }
+
+    public void printReversedString()
+    {
+        String letters = "ABCDEF";
+        StringBuilder lettersProc = new StringBuilder(letters);
+        stream.println(lettersProc.reverse().toString());
+    }
+
+    public void printReversedWords()
+    {
+        String example = "Reverse these words";
+        Stack<String> stack = new Stack<String>();
+        StringTokenizer tokenizer = new StringTokenizer(example);
+
+        while (tokenizer.hasMoreTokens()) {
+            stack.add((String) tokenizer.nextElement());
+        }
+
+        StringBuilder reverser = new StringBuilder();
+        while (!stack.empty()) {
+            reverser.append(stack.pop());
+            reverser.append(" ");
+        }
+
+        stream.println(reverser.toString());
     }
 }
